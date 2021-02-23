@@ -44,7 +44,7 @@ class App extends Component {
       id: '1',
       text: '1',
       attachTo: {
-        element: '.object5',
+        element: '.object1',
         on: 'left'
       },
       classes: 'example-step-extra-class',
@@ -54,7 +54,31 @@ class App extends Component {
           action: this.next
         }
       ]
-    }], ()=>{
+    },{
+			id: '2',
+			text: '2',
+			attachTo: {
+				element: '.object2',
+				on: 'left'
+			},
+			classes: 'example-step-extra-class',
+			buttons: [{
+				text: 'Next',
+				action: this.next,
+			}]
+		},{
+			id: '3',
+			text: '3',
+			attachTo: {
+				element: '.object4',
+				on: 'left'
+			},
+			classes: 'example-step-extra-class',
+			buttons: [{
+				text: 'Next',
+				action: this.next,
+			}]
+		}], ()=>{
       this.startTour();
     });
   }
@@ -62,7 +86,8 @@ class App extends Component {
   render(){
     return (
       <div style={{marginLeft: 350}}>
-        <span className="object1">Object1</span> <button onClick={this.startTourRoot}>run main tutorial</button><br/>
+        <button onClick={this.startTourRoot}>run main tutorial</button><br/>
+        <span className="object1">Object1</span><br/>
         <Layout setSteps={this.setSteps} startTour={this.startTour} next={this.next} />
         <span className="object7">Object7</span><br/>
       </div>

@@ -13,6 +13,18 @@ class InnerComponent extends Component {
 			id: '1',
 			text: '1',
 			attachTo: {
+				element: '.object4',
+				on: 'left'
+			},
+			classes: 'example-step-extra-class',
+			buttons: [{
+				text: 'Next',
+				action: this.props.next,
+			}]
+		},{
+			id: '2',
+			text: '2',
+			attachTo: {
 				element: '.object5',
 				on: 'left'
 			},
@@ -29,8 +41,10 @@ class InnerComponent extends Component {
 	render(){
 		return (
 			<div>
-				<span className="object4">Object4</span> <button onClick={this.startTourRoot}>run component tutorial</button><br/>
-				<span className="object5">Object5</span><br/>
+				<button onClick={this.startTourRoot}>run component tutorial</button><br/>
+				{[{class: "object4", content: "Object4"}, {class: "object5", content: "Object5"}].map((item)=>(
+					<><span className={item.class}>{item.content}</span><br/></>
+				))}
 			</div>
 		);
 	}

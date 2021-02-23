@@ -42,8 +42,8 @@ class InnerComponent extends Component {
 		return (
 			<div>
 				<button onClick={this.startTourRoot}>run component tutorial</button><br/>
-				{[{class: "object4", content: "Object4"}, {class: "object5", content: "Object5"}].map((item)=>(
-					<><span className={item.class}>{item.content}</span><br/></>
+				{[{class: "object4", content: "Object4"}, {class: "object5", content: "Object5"}].map((item, idx)=>(
+					<><span id={`child-${idx}`} className={item.class}>{item.content}</span><br/></>
 				))}
 			</div>
 		);
